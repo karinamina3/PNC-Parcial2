@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Ingresar Libro</title>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<style>
+	.container {
+	    align-items: center;
+    	display: flex;
+    	flex-direction: column;
+    	margin: 2em;
+	}
+	
+	span {
+		color:red;
+	}
+	
+	.row {
+	    display: flex;
+	    align-items: baseline;
+	    margin-bottom: 1em;
+	}
+	
+	label {
+		margin-right: 0.5em;
+	}
+</style>
+</head>
+<body>
+
+<div class="container">
+	<h1 style="margin-bottom: 1em;">Ingresar Libro</h1>
+	<form th:action="@{/ingresarLibro}" th:object="${libro}" method="post">
+  			
+  		<div class="row">
+    		<label>Título</label>
+    		<div>
+    			<input type="text" th:field="*{titulo}"><br>
+    			<span th:errors="*{titulo}"></span><br>
+    		</div>
+  		</div>
+  		
+  		<div class="row">
+    		<label>Autor</label>
+    		<div>
+    			<input type="text" th:field="*{autor}"><br>
+    			<span th:errors="*{autor}"></span><br>
+    		</div>
+  		</div>
+  		
+  		<div class="row">
+    		<label>ISBN</label>
+    		<div>
+    			<input type="text" th:field="*{isbn}"><br>
+    			<span th:errors="*{isbn}"></span><br>
+    		</div>
+  		</div>
+  		
+  		<div class="row">
+			<label>Categoría</label>
+			<div>
+				<select th:field="*{categoria.code}">
+	            	<option 
+	            		th:each="cat : ${categorias}" 
+	            		th:value="${cat.code}" 
+	            		th:text="${cat.categoria}">
+	           		</option>
+	        	</select>
+	        	<span th:errors="*{categoria}"></span><br>
+        	</div>
+       	</div>
+       	
+       	<div class="row">
+   			<input type="checkbox" id="estado" name="estado" th:value="${true}">
+			<label for="estado" style="margin-left: 0.5em"> Activo</label><br>
+  		</div>
+		
+		<div class="row">
+			<input type="submit" class="btn btn-success" value="Guardar">
+		</div>
+		
+	</form>
+	
+	<a type="button" class="btn btn-info" href="/index" style="margin-top: 2em;">Regresar</a>
+	 
+</div>
+
+</body>
+</html>

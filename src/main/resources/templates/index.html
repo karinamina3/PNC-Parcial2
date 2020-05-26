@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Parcial</title>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<style>
+	.container {
+	    align-items: center;
+    	display: flex;
+    	flex-direction: column;
+    	margin: 2em;
+	}
+	
+	a {
+		width: 60%;
+		margin-top: 2em;
+		font-size: 2em !important;
+	}
+</style>
+</head>
+<body>
+
+<h1 th:object="${texto}"></h1>
+<div class="container">
+	<a type="button" class="btn btn-primary" href="/categoria">INGRESAR CATEGORIA</a><br>
+	<a type="button" class="btn btn-primary" href="/libro">INGRESAR LIBRO</a><br>
+	<a type="button" class="btn btn-primary" href="/libros">VER LIBROS</a><br>
+</div>
+
+</body>
+</html>
